@@ -1,21 +1,63 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<!-- Root element of the Maven POM file with XML namespaces -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- Maven model version -->
   <modelVersion>4.0.0</modelVersion>
+
+  <!-- Group ID: Usually your organization's domain in reverse -->
   <groupId>com.example</groupId>
+
+  <!-- Artifact ID: Project name -->
   <artifactId>HibernateFinal</artifactId>
+
+  <!-- Packaging type: war indicates this is a web application -->
   <packaging>war</packaging>
+
+  <!-- Project version -->
   <version>0.0.1-SNAPSHOT</version>
+
+  <!-- Project name -->
   <name>HibernateFinal Maven Webapp</name>
+
+  <!-- Project URL (optional, can be your website or project homepage) -->
   <url>http://maven.apache.org</url>
+
+  <!-- Dependencies: libraries your project needs -->
   <dependencies>
+
+    <!-- JUnit: Used for writing and running unit tests -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
-      <scope>test</scope>
+      <scope>test</scope> <!-- Only used during testing -->
     </dependency>
+
+    <!-- Hibernate Core: Main ORM (Object Relational Mapping) library -->
+    <!-- Source: https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>6.6.13.Final</version>
+    </dependency>
+
+    <!-- PostgreSQL JDBC Driver: To connect Java to PostgreSQL DB -->
+    <!-- Source: https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.5</version>
+    </dependency>
+
   </dependencies>
+
+  <!-- Build configuration -->
   <build>
+    <!-- The final name of the WAR file when built -->
     <finalName>HibernateFinal</finalName>
   </build>
+
 </project>
