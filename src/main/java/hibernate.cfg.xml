@@ -20,7 +20,7 @@
 
         <!-- Database connection URL (PostgreSQL) -->
         <!--<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/QuizzData</property>-->
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/QuizzData</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/mydb</property>
 
         <!-- Database username -->
         <!--<property name="hibernate.connection.username">root</property>-->
@@ -48,9 +48,7 @@
         <property name="hibernate.generate_statistics">true</property>
 
         <!-- Mapping entity classes (must be annotated with @Entity) -->
-        <mapping class="entity.UserData"/>
-        <mapping class="entity.QueDemo"/>
-        <mapping class="entity.ScoreData"/>
+        <mapping class="model.StudentData"/>
 
     </session-factory>
 

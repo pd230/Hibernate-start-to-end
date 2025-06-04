@@ -1,0 +1,206 @@
+*ORM stands for Object Relational Mapping.*
+It is a programming technique that allows developers to map Java objects (classes) to relational database tables.
+ORM acts as a bridge between the object-oriented world and relational databases.When working with object-oriented 
+applications, we deal with *objects, but databases work with **tables and records. ORM helps in **automatically 
+converting (or mapping)* Java objects into database records and vice versa, reducing the need for manual SQL code.
+
+*Hibernate* is a popular ORM framework in Java. It simplifies the database interaction by allowing developers to 
+work with Java objects instead of writing complex SQL queries.
+
+In Hibernate:
+
+* A *Java class* is mapped to a *database table*.
+* *Fields (properties)* of the class become the *columns* of the table.
+* Each *object (instance)* of the class represents a *row (record)* in the table.
+* Hibernate takes care of generating the necessary SQL and handles the CRUD operations automatically.
+
+This makes development faster, cleaner, and less error-prone.
+
+---------------------------------------------------------------------------------------------------
+Hibernate: 
+
+
+Key Features:
+Open-source and lightweight
+Allows for strong data manipulation with little coding
+High productivity and portability
+Enables automatic table creation
+Provides query statistics and database status
+
+What "Database Independent" Means:
+You don't write database-specific SQL. You write HQL (Hibernate Query Language) or use JPA Criteria,
+ which Hibernate translates internally into appropriate SQL for the current database.
+
+Hibernate supports dialects for different databases (e.g., MySQLDialect, OracleDialect). You just change the dialect 
+in the config and Hibernate handles the SQL differences.
+
+Query q = session.createQuery("from Employee where salary > :salary");
+q.setParameter("salary", 50000);
+You don’t need to change this query if you move from MySQL to Oracle — Hibernate handles it.
+
+
+JDBC: 
+
+
+Key Features:
+Provides excellent portability
+Gives access to any query from the database
+Compatible with Java applications like Java Applets, Java Servlets, Java Server Pages (JSPs). Enterprise JavaBeans (EJBs)
+Supports advanced data types such as BLOB, CLOB, etc.
+Sending multiple updates to the database (batch updating) is easy
+
+What "Database Dependent" Means:
+With JDBC, you have to write SQL queries specific to the database you are using.
+Each database (e.g., MySQL, Oracle) has slightly different SQL syntax, functions, and behaviors.
+You must use the correct driver for the specific database.
+
+-- MySQL syntax
+SELECT * FROM employee LIMIT 10;
+
+-- Oracle syntax
+SELECT * FROM employee WHERE ROWNUM <= 10;
+
+
+Hibernate vs. JDBC
+
+	 
+Hibernate is a Java framework.
+JDBC is a database connectivity tool.
+ 	 
+Hibernate can perform automatic object mapping. It maps the object model’s data to the schema of the database itself with the
+ help of annotations.
+In JDBC, one needs to write code to map the object model’s data representation to the schema of the relational model.
+ 	 
+Hibernate manages exceptions itself by marking them as unchecked.
+JDBC code needs to be written in a try-catch block as it throws checked exceptions.
+ 	 
+Hibernate uses HQL (Hibernate Query Language), similar to SQL, but additionally understands object-oriented concepts like 
+inheritance, association, and such.
+Developers can easily create queries and update data to a relational database using the Structured Query Language (SQL).
+ 	 
+Whereas Hibernate is database independent and the same code can work for many databases with minor changes.
+JDBC is database-dependent, meaning that developers are required to write different codes for different databases.
+ 	 
+With Hibernate, associations like one-to-one, one-to-many, many-to-one, and many-to-many can be acquired easily with the 
+help of annotations.
+Creating associations between relations is not an easy task to manage in JDBC.
+ 	 
+Hibernate provides good support for lazy loading.
+JDBC does not support lazy loading.
+ 	 
+All the transaction management is handled solely by Hibernate.
+Precise database connections and transactions have to be maintained when working with JDBC.
+ 	 
+More often than not, Hibernate developers have to wait for a reply after posting questions to a forum to get help on any 
+issues.	
+Since JDBC is developed by the Oracle Corporation, developers have easy access to dedicated customer service teams who 
+can help with any queries.
+
+--------------------------------------------------------------------------------------------------------------------
+
+JPA VS HIBERNATE
+
+JPA - is a specification hibernate implements thats specifications.
+
+we have different ORM tools available in market like hibernate, toplink ,iBatis etc.
+so assume we are working with hibernate and want to switch for iBatis for its better fitures how can we do it?
+so here's comes JPA, An Specifications.
+while working with hibernate if you implements JPA specifiaction than it is easy to switch between ORM tools.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Entity:
+entities are Java classes that can be mapped to database tables and these classes define the structure of the data and 
+act as a bridge between the object-oriented world of Java and the relational world of the database.
+
+new -> transient  -> gc
+           |
+       persistent -> Removed
+           |
+       Detached  
+
+1. new or transient:
+   Object is created using new but not saved in DB 
+
+     User user = new User(); // new/transient
+     user.setName("Pratiksha");
+     user.setEmail("pratiksha@example.com");
+
+2. persistent (after persist() or save()):
+   Object is now associated with session, and Hibernate will track changes.
+
+   session.save(user);
+
+3. detached
+   Object was persistent, but session is now closed. Hibernate no longer tracks changes.
+
+   Session session1 = sessionFactory.openSession();
+   User user = session1.get(User.class, 1); // persistent
+   session1.close(); // now detached
+
+   user.setName("New Name"); // No effect on DB
+
+   Session session2 = sessionFactory.openSession();
+   session2.beginTransaction();
+   session2.update(user); // attach again
+   session2.getTransaction().commit();
+   ✅ Use update() or merge() to re-attach and save changes.
+
+
+4. removed:
+
+   Object is marked for deletion. Hibernate deletes it from DB on commit.
+   
+   Session session = sessionFactory.openSession();
+   session.beginTransaction();
+
+   User user = session.get(User.class, 1); // persistent
+   session.delete(user); // marked for deletion (removed)
+
+   session.getTransaction().commit(); // deleted from DB
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+What is Session in Hibernate?
+🔷 Definition:
+Session is the primary interface in Hibernate used to interact with the database.
+
+It acts as a wrapper over JDBC Connection and is used to perform operations like save, update, delete, and fetch.
+
+✅ Key Points:
+Provided by Hibernate (not JPA).
+
+Created from SessionFactory.
+
+Represents a unit of work (like a single transaction).
+
+Manages objects in persistent state.
+
+Maintains the first-level cache.
+
+
+What is Persistence Context?
+🔷 Definition:
+The Persistence Context is a memory area (like a map or cache) where Hibernate or JPA stores managed entities (persistent objects) during a session.
+
+It ensures that any changes to objects are tracked and synchronized with the database when the transaction is committed.
+
+✅ Key Points:
+It is conceptual, not a class.
+
+Maintains a unique identity for each entity (same ID = same Java object).
+
+Automatically detects changes (dirty checking).
+
+When session is closed, persistence context is cleared.
+
+✅ Real-World Analogy
+Session = A notepad used in a meeting
+
+Persistence Context = The written notes on that notepad during the meeting
+
+Once the meeting ends (session is closed), the notes (context) are cleared unless saved.
+
+
+-------------------------------------------------------------------------------------------------------------------------

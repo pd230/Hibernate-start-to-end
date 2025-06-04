@@ -8,7 +8,8 @@
 
 <body>
     <!-- The content displayed on the web page -->
-    Hello....
+    <a href="Login.jsp">Login</a>
+    <a href="SignUp.jsp">Register</a>
 </body>
 
 </html>
