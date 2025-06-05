@@ -11,4 +11,14 @@
     <servlet-name>SignUpServlet</servlet-name>
     <url-pattern>/SignUpServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmbeddableServlet</display-name>
+    <servlet-name>EmbeddableServlet</servlet-name>
+    <servlet-class>embeddable.EmbeddableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmbeddableServlet</servlet-name>
+    <url-pattern>/EmbeddableServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

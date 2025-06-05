@@ -17,7 +17,7 @@ This is a Java web application using JSP, Servlets, Hibernate, and MySQL for use
 
 ## How to Run
 1. Clone the repo
-2. Set up MySQL database and update `hibernate.cfg.xml`
+2. Set up PostgresSql database and update `hibernate.cfg.xml`
 3. Run on Tomcat server
 
 ## Author

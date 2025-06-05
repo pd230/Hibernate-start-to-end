@@ -8,8 +8,10 @@
 
 <body>
     <!-- The content displayed on the web page -->
-    <a href="Login.jsp">Login</a>
-    <a href="SignUp.jsp">Register</a>
+    <h3>List of what you can get from this project</h3>
+    <a href="Login.jsp">Login</a><br>
+    <a href="SignUp.jsp">Register</a><br>
+    <a href="Embeddable.jsp">Embeddable Demo</a>
 </body>
 
 </html>

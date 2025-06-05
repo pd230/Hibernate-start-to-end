@@ -1,3 +1,5 @@
+Download hibernate from jboss tool (eclipse Marketplace) if your machine does not have it 
+--------------------------------------------------------------------------------------------------
 *ORM stands for Object Relational Mapping.*
 It is a programming technique that allows developers to map Java objects (classes) to relational database tables.
 ORM acts as a bridge between the object-oriented world and relational databases.When working with object-oriented 

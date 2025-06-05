@@ -49,7 +49,7 @@
 
         <!-- Mapping entity classes (must be annotated with @Entity) -->
         <mapping class="model.StudentData"/>
-
+        <mapping class="embeddable.EbdDemo1_Alien"/>
     </session-factory>
 
 </hibernate-configuration>
