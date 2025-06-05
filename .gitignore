@@ -1,4 +1,12 @@
+# Ignore build files
 /target
-.classpath
-.project
-.settings/
+/bin
+
+# Eclipse files
+*.classpath
+*.project
+*.settings/
+
+# OS junk files
+.DS_Store
+Thumbs.db
