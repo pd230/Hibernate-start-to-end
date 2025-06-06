@@ -50,6 +50,8 @@
         <!-- Mapping entity classes (must be annotated with @Entity) -->
         <mapping class="model.StudentData"/>
         <mapping class="embeddable.EbdDemo1_Alien"/>
+        <mapping class="mappingRelations.Laptops"/>
+        <mapping class="mappingRelations.Student"/>
     </session-factory>
 
 </hibernate-configuration>

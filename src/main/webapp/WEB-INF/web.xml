@@ -21,4 +21,14 @@
     <servlet-name>EmbeddableServlet</servlet-name>
     <url-pattern>/EmbeddableServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LSmapping</display-name>
+    <servlet-name>LSmapping</servlet-name>
+    <servlet-class>mappingRelations.LSmapping</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LSmapping</servlet-name>
+    <url-pattern>/LSmapping</url-pattern>
+  </servlet-mapping>
 </web-app>
