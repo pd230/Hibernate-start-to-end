@@ -2,9 +2,13 @@ package mappingRelations;
 
 import java.util.List;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import jakarta.persistence.*;
 
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -15,6 +15,10 @@
     <form action="LSmapping" method="post">
       <input type="submit" value="Relational mapping Demo">
     </form>
+    <form action="CacheServletDemo" method="post">
+      <input type="submit" value="Cache Demo">
+    </form>
+   
 </body>
 
 </html>

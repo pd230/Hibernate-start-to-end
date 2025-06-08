@@ -31,4 +31,15 @@
     <servlet-name>LSmapping</servlet-name>
     <url-pattern>/LSmapping</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>CacheServletDemo</display-name>
+    <servlet-name>CacheServletDemo</servlet-name>
+    <servlet-class>cache.CacheServletDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CacheServletDemo</servlet-name>
+    <url-pattern>/CacheServletDemo</url-pattern>
+  </servlet-mapping>
 </web-app>

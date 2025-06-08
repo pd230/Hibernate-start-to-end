@@ -1,8 +1,13 @@
 package model;
 
+import org.hibernate.annotations.*;
+
 import jakarta.persistence.*;
 
+
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class StudentData {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

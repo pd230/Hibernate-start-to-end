@@ -206,3 +206,51 @@ Once the meeting ends (session is closed), the notes (context) are cleared unles
 
 
 -------------------------------------------------------------------------------------------------------------------------
+
+EAGER & LAZY 
+
+@ManyToOne is EAGER by default
+
+@OneToMany and @ManyToMany are LAZY by default
+
+You can override by specifying fetch = FetchType.EAGER or fetch = FetchType.LAZY
+
+-----------------------------------------------------------------------------------------------------------------------
+
+🔹 What is Caching?
+Caching means storing data in memory to avoid repeated database hits for the same data. Hibernate provides two levels of cache:
+
+1. First-Level Cache (L1) – Default
+🔍 Key Points:
+Enabled by default
+
+Per session
+
+Managed internally by Hibernate
+
+You don’t need to configure it manually
+
+Session session = sessionFactory.openSession();
+Student s1 = session.get(Student.class, 1); // Hits DB
+Student s2 = session.get(Student.class, 1); // Fetched from cache
+
+
+
+2. Second-Level Cache (L2) – Optional
+🔍 Key Points:
+Across sessions
+
+Requires manual configuration
+
+Uses external caching libraries like:
+
+EHCache
+
+Infinispan
+
+Caffeine
+
+Student s1 = session1.get(Student.class, 1); // DB hit
+session1.close();
+Student s2 = session2.get(Student.class, 1); // Comes from 2nd level cache (if configured)
+
