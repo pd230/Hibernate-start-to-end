@@ -31,7 +31,6 @@
     <servlet-name>LSmapping</servlet-name>
     <url-pattern>/LSmapping</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>CacheServletDemo</display-name>
@@ -41,5 +40,15 @@
   <servlet-mapping>
     <servlet-name>CacheServletDemo</servlet-name>
     <url-pattern>/CacheServletDemo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HqlServlet</display-name>
+    <servlet-name>HqlServlet</servlet-name>
+    <servlet-class>hqlDemo.HqlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HqlServlet</servlet-name>
+    <url-pattern>/HqlServlet</url-pattern>
   </servlet-mapping>
 </web-app>

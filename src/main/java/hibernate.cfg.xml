@@ -45,10 +45,12 @@
         <property name="hibernate.use_sql_comments">true</property>
 
        <!-- Enable cache -->
-        <property name="hibernate.cache.use_second_level_cache">true</property>
-        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property>
-        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
-        <property name="hibernate.javax.cache.uri">ehcache.xml</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+<!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property>
+<property name="hibernate.javax.cache.provider">com.github.benmanes.caffeine.jcache.spi.CaffeineCachingProvider</property>
+<property name="hibernate.javax.cache.uri">classpath:ehcache.xml</property>  
+<property name="hibernate.cache.use_query_cache">true</property>-->
+
 
         <!-- Mapping entity classes (must be annotated with @Entity) -->
         <mapping class="model.StudentData"/>
@@ -56,6 +58,7 @@
         <mapping class="mappingRelations.Laptops"/>
         <mapping class="mappingRelations.Student"/>
         <mapping class="cache.CacheDemo"/>
+        <mapping class="hqlDemo.Hql_Product"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -254,3 +254,23 @@ Student s1 = session1.get(Student.class, 1); // DB hit
 session1.close();
 Student s2 = session2.get(Student.class, 1); // Comes from 2nd level cache (if configured)
 
+---------------------------------------------------------------------------------------------------------------------
+
+HQL 
+
+1. Select name from Student;
+            |          |
+         property    class
+         
+2. from Student; (to select entire table)
+
+3. sql in hibernate -> native queries
+
+4 . jpa 
+
+------------------------------------------------------------------------------------------------
+
+JPA 
+
+1 .  get : gives direct object , null
+2 . load : gives proxy object , exception objectNotfound
